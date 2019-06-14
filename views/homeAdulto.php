@@ -56,14 +56,14 @@
 					   		<?php endif;?>			   		
 					   <?php endforeach; ?>
 					   <?php if ($valor != 0):?>
-					   			<td><a href="<?=BASE_URL?>adulto/casamento/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-success">Quesito Casamento</a></td>
+					   			<td><a href="<?=BASE_URL?>adulto/casamento/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-info">Quesito Casamento</a></td>
 					   		<?php 
 					   		break;
 					   	  	endif;?>
 				<?php endif ?>
 			<?php endforeach; ?>
 			<?php elseif (empty($info_casamento)):?>
-						<td><a href="<?=BASE_URL?>adulto/casamento/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-success">Quesito Casamento</a></td>
+						<td><a href="<?=BASE_URL?>adulto/casamento/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-info">Quesito Casamento</a></td>
 			<?php endif ?>
 
 			<!--Verifica se o participante já foi avaliado no quesito marcador-->
@@ -83,14 +83,14 @@
 					   		<?php endif;?>			   		
 					   <?php endforeach; ?>
 					   <?php if ($valor != 0):?>
-					   			<td><a href="<?=BASE_URL?>adulto/marcador/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-success">Quesito Marcador</a></td>
+					   			<td><a href="<?=BASE_URL?>adulto/marcador/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-warning">Quesito Marcador</a></td>
 					   		<?php 
 					   		break;
 					   	  	endif;?>
 				<?php endif ?>
 			<?php endforeach; ?>
 			<?php elseif (empty($info_marcador)):?>
-						<td><a href="<?=BASE_URL?>adulto/marcador/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-success">Quesito Marcador</a></td>
+						<td><a href="<?=BASE_URL?>adulto/marcador/<?=$dadulto['id']?>/<?=$dadulto['id_categoria']?>" class="btn btn-warning">Quesito Marcador</a></td>
 			<?php endif ?>
 			
 		</tr>
