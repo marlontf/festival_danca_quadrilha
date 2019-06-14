@@ -12,7 +12,7 @@ if (ENVIRONMENT == 'development') {
 	$config['dbuser']	= 'suporte';
 	$config['dbpass']	= '';	
 }else{
-	define("BASE_URL", "http://sgcpd.teofilootoni.mg.gov.br/");
+	define("BASE_URL", "http://adefinir.teofilootoni.mg.gov.br/");
 	$config['dbname'] 	= 'db_concursos_calouros';
 	$config['host']		= 'localhost';
 	$config['dbuser']	= 'root';

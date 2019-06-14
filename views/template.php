@@ -56,7 +56,8 @@
       				<li class="nav-item dropdown">
         				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Avaliação Adulta</a>
         			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          				<a class="dropdown-item" href="<?=BASE_URL.'adulto'?>">Listar</a>
+          				<a class="dropdown-item" href="<?=BASE_URL.'adulto'?>">Listar / Avaliação</a>
+                  <a class="dropdown-item" href="<?=BASE_URL.'adulto/classificacao'?>">Classificação</a>
         			</div>
       				</li>
       				<?php if (!empty($_SESSION['LOGIN'])): ?>
