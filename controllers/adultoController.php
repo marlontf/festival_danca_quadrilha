@@ -30,10 +30,16 @@ class adultoController extends controller
 	public function quadrilha($id_participante, $id_categoria)
 	{
 		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
-		$dquadrilha = new modelQuadrilha();
-		$dado_quadrilha = $dquadrilha->listarQuadrilhas($id_participante, $id_categoria);
-		//verifica se quadrilha não está inserido, se não estiver encaminha consegue inserir notas e acessar form
+		$dquadrilha 		= new modelQuadrilha();
+		$dado_quadrilha 	= $dquadrilha->listarQuadrilhas($id_participante, $id_categoria);
+		$info_participante 	= new modelParticipante();
 
+		$dados = array
+		(
+			'info_part' => $info_participante->participante($id_participante), 
+		);
+
+		//verifica se quadrilha não está inserido, se não estiver encaminha consegue inserir notas e acessar form
 
 		if (isset($_POST['evolucao']) && !empty($_POST['evolucao'])) {
 			$evolucao 		= $_POST['evolucao'];
@@ -47,7 +53,7 @@ class adultoController extends controller
 		}
 
 		if (empty($dado_quadrilha)) {
-		$this->loadTemplate('apuracaoAdultoQuadrilha');
+		$this->loadTemplate('apuracaoAdultoQuadrilha', $dados);
 		}else{
 		header('Location:'.BASE_URL.'adulto');
 		}
@@ -59,9 +65,15 @@ class adultoController extends controller
 	public function casamento($id_participante, $id_categoria)
 	{
 		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
-		$dcasamento = new modelCasamento();
-		$dado_casamento = $dcasamento->listarCasamentos($id_participante, $id_categoria);
+		$dcasamento 				= new modelCasamento();
+		$info_participante 			= new modelParticipante();
+		$dado_casamento 			= $dcasamento->listarCasamentos($id_participante, $id_categoria);
+
 		//verifica se quadrilha não está inserido, se não estiver encaminha consegue inserir notas e acessar form
+		$dados = array
+		(
+			'info_part' => $info_participante->participante($id_participante), 
+		);
 
 		if (isset($_POST['vest_tradicional']) && !empty($_POST['vest_tradicional'])) {
 			$vest_tradicional 		= $_POST['vest_tradicional'];
@@ -72,7 +84,7 @@ class adultoController extends controller
 		}
 
 		if (empty($dado_casamento)) {
-		$this->loadTemplate('apuracaoAdultoCasamento');
+		$this->loadTemplate('apuracaoAdultoCasamento', $dados);
 		}else{
 		header('Location:'.BASE_URL.'adulto');
 		}
@@ -85,8 +97,13 @@ class adultoController extends controller
 	public function marcador($id_participante, $id_categoria)
 	{
 		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
-		$dmarcador = new modelMarcador();
-		$dado_marcador = $dmarcador->listarMarcador($id_participante, $id_categoria);
+		$dmarcador 				= new modelMarcador();
+		$info_participante 		= new modelParticipante();
+		$dado_marcador 			= $dmarcador->listarMarcador($id_participante, $id_categoria);
+		$dados = array
+		(
+			'info_part' => $info_participante->participante($id_participante), 
+		);
 		//verifica se quadrilha não está inserido, se não estiver encaminha consegue inserir notas e acessar form
 
 		if (isset($_POST['desenvoltura']) && !empty($_POST['desenvoltura'])) {
@@ -99,7 +116,7 @@ class adultoController extends controller
 		}
 
 		if (empty($dado_marcador)) {
-		$this->loadTemplate('apuracaoAdultoMarcador');
+		$this->loadTemplate('apuracaoAdultoMarcador', $dados);
 		}else{
 		header('Location:'.BASE_URL.'adulto');
 		}
@@ -111,6 +128,12 @@ class adultoController extends controller
 
 	public function classificacao()
 	{
+		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
+		
+		$user = explode('-', $_SESSION['LOGIN']);
+		//verifica as permissões do usuario
+		if ($user[3] == 'comissao') {
+
 		$adulto = new modelAdulto();
 
 		$dados = array();
@@ -156,6 +179,13 @@ class adultoController extends controller
 		}
 		
 		$this->loadTemplate('classificacaoAdulto', $dados); 
+		//se não tiver permissão
+		}else{
+			echo "não tem permissão";
+		}
+		}else{
+			header('Location:'.BASE_URL.'usuario');
+		}
 	}
 
 }

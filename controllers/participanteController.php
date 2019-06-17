@@ -9,13 +9,16 @@ class participanteController extends controller
 	{
 		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
 
+		$user = explode('-', $_SESSION['LOGIN']);
+		//verifica as permissões do usuario
+		if ($user[3] == 'comissao') {
 			$participante 	 	= new modelParticipante();
 			$mensagem 			= "";
 			if (isset($_POST['nome']) && !empty($_POST['nome'])) {
-				$nome 			= $_POST['nome'];
+				$nome 			= utf8_decode($_POST['nome']);
 				$id_categoria 	= $_POST['id_categoria'];
 				$participante 	->cadastrar($id_categoria, $nome);
-				$mensagem 		= "Participante Cadastrado com sucesso!";
+				$mensagem 		= "1";
 			}
 
 			$dados = array
@@ -24,6 +27,67 @@ class participanteController extends controller
 				'mensagem'		 => $mensagem
 			);
 			$this->loadTemplate("cadastroParticipantes", $dados);
+		}else{
+			echo "Não tem permissão de acesso";
+		}
+		}else{
+			header('Location:'.BASE_URL.'usuario');
+		}
+	}
+
+	public function listar()
+	{
+		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
+
+		$user = explode('-', $_SESSION['LOGIN']);
+		//verifica as permissões do usuario
+		if ($user[3] == 'comissao') {
+		$participante = new modelParticipante();
+
+		$dados = array
+		(
+			'info_part' => $participante->participanteAll() 
+		);
+
+		$this->loadTemplate("listarParticipantes", $dados);
+		}else{
+			echo "não tem permissão de acesso";
+		}
+		}else{
+			header('Location:'.BASE_URL.'usuario');
+		}
+	}
+
+	public function editar($id_participante)
+	{
+		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
+
+		$user = explode('-', $_SESSION['LOGIN']);
+		//verifica as permissões do usuario
+		if ($user[3] == 'comissao') {
+			
+		$participante 	= new modelParticipante();
+
+		$mensagem 			= "";
+
+		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
+			$nome 			= utf8_decode($_POST['nome']);
+			$id_categoria 	= $_POST['id_categoria'];
+			$participante 	->alterar($id_categoria, $nome, $id_participante);
+			$mensagem 		= "1";
+		}
+
+		$dados = array
+		(
+			'info_categoria' 	=> $participante->categoria(),
+			'info_participante' => $participante->participante($id_participante),
+			'mensagem' 			=> $mensagem, 
+		);
+
+		$this->loadTemplate("editarParticipante", $dados);
+		}else{
+			echo "não tem permissão de acesso";
+		}
 
 		}else{
 			header('Location:'.BASE_URL.'usuario');

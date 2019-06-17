@@ -18,7 +18,7 @@ class usuarioController extends controller
 
 			$dado = $class_usuario->login($usuario, $senha);
 			if (!empty($dado)) {
-				$_SESSION['LOGIN'] = $dado['id'].'-'.$dado['nome'].'-'.$dado['login'];
+				$_SESSION['LOGIN'] = $dado['id'].'-'.$dado['nome'].'-'.$dado['login'].'-'.$dado['perfil'];
 			}
 			
 			header('Location:'.BASE_URL);

@@ -1,5 +1,6 @@
+<h3 align="center">Avaliação de Notas Adulto (Quesito Casamento)</h3>
 <form action="" method="POST" role="form">
-	<legend>Avaliação de Notas Adulto (Quesito Casamento)</legend>
+	<legend>Participante: <?=utf8_encode($info_part['nome'])?></legend>
 
 	<div class="row form-group">
 		<div class="col-md">
@@ -20,7 +21,7 @@
 
  	<div class="row form-group">
  		<div class="col-md d-flex justify-content-start">
- 			<a href="<?=BASE_URL?>infantil" class="btn btn-dark">Voltar</a>
+ 			<a href="<?=BASE_URL?>adulto" class="btn btn-dark">Voltar</a>
  		</div>
  		<div class="col-md d-flex justify-content-end">
  			<button type="submit" class="btn btn-primary">Avaliar</button>

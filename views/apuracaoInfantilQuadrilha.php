@@ -1,5 +1,6 @@
+<h4 align="center">Avaliação de Notas Infantis (Quesito Quadrilha)</h4>
 <form action="" method="POST" role="form">
-	<legend>Avaliação de Notas Infantis (Quesito Quadrilha)</legend>
+	<legend>Participante: <?=utf8_encode($info_part['nome'])?></legend>
 
 	<div class="row form-group">
 		<div class="col-md">

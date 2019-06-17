@@ -20,20 +20,36 @@
       				<li class="nav-item active">
         				<a class="nav-link" href="<?=BASE_URL?>home">Home <span class="sr-only">(Página atual)</span></a>
       				</li>
+              <?php if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])): ?>
+              <?php $login = explode('-', $_SESSION['LOGIN']);?>
       				<li class="nav-item dropdown">
         				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Avaliação Infantil</a>
         			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           				<a class="dropdown-item" href="<?=BASE_URL.'infantil'?>">Listar / Avaliar</a>
+                  <?php if($login[3] == 'comissao'): ?>
                   <a class="dropdown-item" href="<?=BASE_URL.'infantil/classificacao'?>">Classificação</a>
+                  <?php endif ?>
         			</div>
       				</li>
       				<li class="nav-item dropdown">
         				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Avaliação Adulta</a>
         			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          				<a class="dropdown-item" href="<?=BASE_URL.'adulto'?>">Listar / Avaliação</a>
+          				<a class="dropdown-item" href="<?=BASE_URL.'adulto'?>">Listar / Avaliar</a>
+                  <?php if($login[3] == 'comissao'): ?>
                   <a class="dropdown-item" href="<?=BASE_URL.'adulto/classificacao'?>">Classificação</a>
+                  <?php endif; ?>
         			</div>
       				</li>
+              <?php if($login[3] == 'comissao'): ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Participantes</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="<?=BASE_URL.'participante/listar'?>">Listar / Editar</a>
+                  <a class="dropdown-item" href="<?=BASE_URL.'participante'?>">Cadastrar</a>
+              </div>
+              </li>
+              <?php endif; ?>
+              <?php endif;?>
       				<?php if (!empty($_SESSION['LOGIN'])): ?>
       				<li class="nav-item dropdown">
         				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php

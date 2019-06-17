@@ -1,4 +1,4 @@
-<?php if(!empty($mensagem)): ?>
+<?php if(!empty($mensagem) && $mensagem == '1'): ?>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>Cadastro</strong> realizado com sucesso!
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">

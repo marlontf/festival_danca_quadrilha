@@ -33,7 +33,7 @@ if ($_POST['categoria'] == '3') {
 <h4 align="center">Classificação Infantil (Quesito <?=$title?>)</h4>
 <table class="table table-bordered table-hover">
 	<thead>
-		<tr>
+		<tr class="btn-dark">
 			<th>Classificação</th>
 			<th>Participantes</th>
 			<th>Nota Total</th>
