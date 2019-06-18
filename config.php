@@ -6,7 +6,7 @@ $config = array();
 
 //verifica a configuração do environment e puxa a configuração do servidor local ou externo;
 if (ENVIRONMENT == 'development') {
-	define("BASE_URL", "http://192.168.11.80/calouros.com/");
+	define("BASE_URL", "http://localhost/calouros.com/");
 	$config['dbname'] 	= 'db_concursos_calouros';
 	$config['host']		= 'localhost';
 	$config['dbuser']	= 'suporte';

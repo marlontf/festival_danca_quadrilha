@@ -42,6 +42,13 @@
       				</li>
               <?php if($login[3] == 'comissao'): ?>
               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quesitos</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="<?=BASE_URL.'infantil/quesitos'?>">Aval. Jurados (Infantil)</a>
+                  <a class="dropdown-item" href="<?=BASE_URL.'adulto/quesitos'?>">Aval. Jurados (Adulto)</a>
+              </div>
+              </li>
+              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Participantes</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="<?=BASE_URL.'participante/listar'?>">Listar / Editar</a>
