@@ -189,5 +189,28 @@ class infantilController extends controller
 		}
 	}
 
+	public function quesitos()
+	{
+		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
+		$dquesitos = new modelInfantil();
+		$user = explode('-', $_SESSION['LOGIN']);
+		//verifica as permissões do usuario
+		if ($user[3] == 'comissao') {
+
+		$dados = array
+		(
+			'info_quesitos_quadrilha' => $dquesitos->fQuesitosQuadrilha(), 
+			'info_quesitos_casamento' => $dquesitos->fQuesitosCasamento(),
+			'info_quesitos_marcador' => $dquesitos->fQuesitosMarcador(),  
+		);	
+		
+		$this->loadTemplate('classificacaoQuesitoInfantil', $dados);
+
+		}else{
+			header('Location:'.BASE_URL.'usuario');
+		}
+		}
+	}
+
 }
 ?>

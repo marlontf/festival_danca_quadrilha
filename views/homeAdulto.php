@@ -1,7 +1,7 @@
 <h4 align="center">Grupos Adultos (Avaliações dos Jurados)</h4>
 <table class="table table-bordered table-hover">
 	<thead>
-		<tr>
+		<tr class="btn-dark">
 			<th>Participantes</th>
 			<th>Quadrilha</th>
 			<th>Casamento</th>
@@ -97,3 +97,9 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
+
+<div class="row">
+	<div class="col-md d-flex justify-content-end">
+		<a href="<?=BASE_URL?>" class="btn btn-dark">Voltar</a>
+	</div>
+</div>

@@ -11,6 +11,7 @@
 
 	<div class="form-group row">
 		<div class="col-md">
+			<label>Categorias</label>
 			<select name="id_categoria" id="input" class="form-control" required="required">
 				<option value="" disabled="disabled" selected="selected">Selecione a Categoria</option>
 				<?php foreach ($info_categoria as $dado_categoria):?>
@@ -23,6 +24,13 @@
 		<div class="col-md">
 			<label>Nome do Grupo</label>
 			<input type="text" name="nome" class="form-control" required="required" placeholder="Nome do Grupo Participante">
+		</div>
+	</div>
+
+	<div class="row form-group">
+		<div class="col-md">
+			<label>Responsável</label>
+			<input type="text" name="responsavel" class="form-control" required="required" placeholder="Responsável">
 		</div>
 	</div>
 

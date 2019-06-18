@@ -84,6 +84,27 @@ class modelAdulto extends model
 		return $sql ->fetchAll();
 	}
 
+	public function fQuesitosQuadrilha()
+	{
+		$sql = $this->pdo->prepare("SELECT c.*, u.nome as jurado, p.* FROM tb_quesitos_quadrilha as c INNER JOIN tb_usuarios as u ON c.id_usuario = u.id INNER JOIN tb_participantes AS p ON p.id = c.id_participante WHERE c.id_categoria = '2' ORDER BY p.id");
+		$sql ->execute();
+		return $sql ->fetchAll();
+	}
+
+	public function fQuesitosCasamento()
+	{
+		$sql = $this->pdo->prepare("SELECT c.*, u.nome as jurado, p.* FROM tb_quesitos_casamento as c INNER JOIN tb_usuarios as u ON c.id_usuario = u.id INNER JOIN tb_participantes AS p ON p.id = c.id_participante WHERE c.id_categoria = '2' ORDER BY p.id");
+		$sql ->execute();
+		return $sql ->fetchAll();
+	}
+
+	public function fQuesitosMarcador()
+	{
+		$sql = $this->pdo->prepare("SELECT c.*, u.nome as jurado, p.* FROM tb_quesitos_marcador as c INNER JOIN tb_usuarios as u ON c.id_usuario = u.id INNER JOIN tb_participantes AS p ON p.id = c.id_participante WHERE c.id_categoria = '2' ORDER BY p.id");
+		$sql ->execute();
+		return $sql ->fetchAll();
+	}
+
 	/*public function classificacaoGeral()
 	{
 		$sql = $this->pdo->prepare("SELECT p.id, p.nome, SUM(c.vest_tradicional+c.originalidade+c.deprec_preconceituoso+m.desenvoltura+m.lideranca+m.animacao+m.figurino+q.evolucao+q.figurino+q.animacao+q.alinhamento+q.coreografia+q.harmonia) as total FROM tb_quesitos_casamento AS c INNER JOIN tb_participantes AS p ON c.id_participante = p.id INNER JOIN tb_quesitos_marcador as m ON p.id = m.id_participante INNER JOIN tb_quesitos_quadrilha AS q ON p.id = q.id_participante GROUP BY c.id_participante ORDER BY p.id DESC");

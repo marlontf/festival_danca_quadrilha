@@ -10,6 +10,7 @@
 	<legend>Alterar informações do Participante</legend>
 	<div class="row form-group">
 		<div class="col-md">
+			<label>Categorias</label>
 			<select name="id_categoria" id="input" class="form-control" required="required">
 				<option value="" disabled="disabled">Selecione a categoria...</option>
 				<?php foreach ($info_categoria as $dado_categoria): ?>
@@ -21,10 +22,18 @@
 
 	<div class="row form-group">
 		<div class="col-md">
-			<label>Participantes</label>
+			<label>Nome do Grupo</label>
 			<input type="text" name="nome" class="form-control" value="<?=utf8_encode($info_participante['nome'])?>">
 		</div>
 	</div>
+
+	<div class="row form-group">
+		<div class="col-md">
+			<label>Responsável</label>
+			<input type="text" name="responsavel" class="form-control" value="<?=utf8_encode($info_participante['responsavel'])?>">
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-md d-flex justify-content-md-end"><button type="submit" class="btn btn-primary">Atualizar</button></div>
 	</div>

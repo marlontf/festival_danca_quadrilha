@@ -16,8 +16,9 @@ class participanteController extends controller
 			$mensagem 			= "";
 			if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 				$nome 			= utf8_decode($_POST['nome']);
+				$responsavel 	= utf8_decode($_POST['responsavel']);
 				$id_categoria 	= $_POST['id_categoria'];
-				$participante 	->cadastrar($id_categoria, $nome);
+				$participante 	->cadastrar($id_categoria, $nome, $responsavel);
 				$mensagem 		= "1";
 			}
 
@@ -72,8 +73,9 @@ class participanteController extends controller
 
 		if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome 			= utf8_decode($_POST['nome']);
+			$responsavel 	= utf8_decode($_POST['responsavel']);
 			$id_categoria 	= $_POST['id_categoria'];
-			$participante 	->alterar($id_categoria, $nome, $id_participante);
+			$participante 	->alterar($id_categoria, $nome, $responsavel, $id_participante);
 			$mensagem 		= "1";
 		}
 
