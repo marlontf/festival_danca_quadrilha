@@ -65,6 +65,10 @@
         				?></a>
         			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="<?=BASE_URL.'usuario/alterar'?>">Alterar Senha</a>
+                  <?php if($login[3] == 'comissao'): ?>
+                  <a class="dropdown-item" href="<?=BASE_URL.'usuario/cadastrar'?>">Cadastrar Usuário</a>
+                  <a class="dropdown-item" href="<?=BASE_URL.'usuario/listar'?>">Listar Usuários</a>
+                  <?php endif ?>
           				<a class="dropdown-item" href="<?=BASE_URL.'usuario/sair'?>">Logout</a>
         			</div>
       				</li>

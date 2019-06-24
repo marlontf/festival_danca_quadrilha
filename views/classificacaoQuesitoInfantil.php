@@ -34,6 +34,7 @@
 			<th>Alinhamento</th>
 			<th>Coreografia</th>
 			<th>Harmonia</th>
+			<th>Total</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -47,6 +48,7 @@
 			<td><?=$dados['alinhamento']?></td>
 			<td><?=$dados['coreografia']?></td>
 			<td><?=$dados['harmonia']?></td>
+			<td class="btn-dark"><?=$dados['evolucao']+$dados['figurino']+$dados['animacao']+$dados['alinhamento']+$dados['coreografia']+$dados['harmonia']?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
@@ -63,6 +65,7 @@
 			<th>Vestimenta Tradicional</th>
 			<th>Originalidade</th>
 			<th>Cuid. Ult. Termos deprec. preconceituoso</th>
+			<th>Total</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -73,6 +76,7 @@
 			<td><?=$dados['vest_tradicional']?></td>
 			<td><?=$dados['originalidade']?></td>
 			<td><?=$dados['deprec_preconceituoso']?></td>
+			<td class="btn-dark"><?=$dados['vest_tradicional']+$dados['originalidade']+$dados['deprec_preconceituoso']?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
@@ -90,6 +94,7 @@
 			<th>Liderança</th>
 			<th>Animação</th>
 			<th>Figurino</th>
+			<th>Total</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -101,6 +106,7 @@
 			<td><?=$dados['lideranca']?></td>
 			<td><?=$dados['animacao']?></td>
 			<td><?=$dados['figurino']?></td>
+			<td class="btn-dark"><?=$dados['desenvoltura']+$dados['lideranca']+$dados['animacao']+$dados['figurino']?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>

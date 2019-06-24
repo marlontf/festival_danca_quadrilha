@@ -45,5 +45,24 @@ class modelParticipante extends model
 		$sql ->bindValue(":id_participante", $id_participante);
 		$sql ->execute();
 	}
+
+	public function excluir($id_participante)
+	{
+		$sql = $this->pdo->prepare("DELETE FROM tb_participantes WHERE id = :id_participante");
+		$sql ->bindValue(":id_participante", $id_participante);
+		$sql ->execute();
+
+		$sql2 = $this->pdo->prepare("DELETE FROM tb_quesitos_casamento WHERE id_participante = :id_participante");
+		$sql2 ->bindValue(":id_participante", $id_participante);
+		$sql2 ->execute();
+
+		$sql3 = $this->pdo->prepare("DELETE FROM tb_quesitos_marcador WHERE id_participante = :id_participante");
+		$sql3 ->bindValue(":id_participante", $id_participante);
+		$sql3 ->execute();
+
+		$sql4 = $this->pdo->prepare("DELETE FROM tb_quesitos_quadrilha WHERE id_participante = :id_participante");
+		$sql4 ->bindValue(":id_participante", $id_participante);
+		$sql4 ->execute();
+	}
 }
 ?>

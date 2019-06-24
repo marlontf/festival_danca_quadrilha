@@ -44,7 +44,10 @@ class participanteController extends controller
 		//verifica as permissões do usuario
 		if ($user[3] == 'comissao') {
 		$participante = new modelParticipante();
-
+		if (isset($_POST['input_id_participante']) && !empty($_POST['input_id_participante'])) {
+		$id_participante = $_POST['input_id_participante'];
+		$participante->excluir($id_participante);
+		}
 		$dados = array
 		(
 			'info_part' => $participante->participanteAll() 
@@ -91,6 +94,25 @@ class participanteController extends controller
 			echo "não tem permissão de acesso";
 		}
 
+		}else{
+			header('Location:'.BASE_URL.'usuario');
+		}
+	}
+
+	public function excluir($id_participante)
+	{
+		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
+
+		$user = explode('-', $_SESSION['LOGIN']);
+		//verifica as permissões do usuario
+		if ($user[3] == 'comissao') {
+		$participante = new modelParticipante();
+
+		$participante->excluir($id_participante);
+
+		}else{
+			echo "não tem permissão de acesso";
+		}
 		}else{
 			header('Location:'.BASE_URL.'usuario');
 		}

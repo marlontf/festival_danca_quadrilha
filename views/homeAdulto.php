@@ -99,7 +99,7 @@
 </table>
 
 <div class="row">
-	<div class="col-md d-flex justify-content-end">
+	<div class="col-md d-flex justify-content-start">
 		<a href="<?=BASE_URL?>" class="btn btn-dark">Voltar</a>
 	</div>
 </div>
