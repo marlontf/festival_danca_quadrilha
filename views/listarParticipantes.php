@@ -1,6 +1,7 @@
-<table class="table table-striped table-hover">
+<h4 align="center">Participantes Cadastrados</h4>
+<table class="table table-striped table-hover table-bordered" style="background-color: white">
 	<thead>
-		<tr>
+		<tr class="btn-info tr-table">
 			<th>Participante</th>
 			<th>Categoria</th>
 			<th>Responsável</th>

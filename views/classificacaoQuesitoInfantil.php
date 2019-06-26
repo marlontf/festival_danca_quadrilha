@@ -1,7 +1,6 @@
 <?php $tb = 1; ?>
-<form action="" method="POST" role="form">
+<form action="" method="POST" role="form" class="hidden-print">
 	<legend align="center">Relatório por Quesito (Infantil)</legend>
-
 	<div class="row form-group">
 		<div class="col-md">
 			<select name="tbquesito" id="input" class="form-control" required="required">
@@ -22,10 +21,10 @@
 	$tb = $_POST['tbquesito'];
 } ?>
 <?php if($tb == '1'): ?>
-<table class="table table-striped table-hover table-bordered">
-	<legend align='center'>Quesito Quadrilha</legend>
+<table class="table table-striped table-hover table-bordered" style="background-color: white">
+	<legend align='center'>Quesito Quadrilha (Infantil)</legend>
 	<thead>
-		<tr class="btn-info">
+		<tr class="btn-info tr-table">
 			<th>Jurado</th>
 			<th>Participante</th>
 			<th>Evolução</th>
@@ -40,7 +39,8 @@
 	<tbody>
 		<?php foreach ($info_quesitos_quadrilha as $dados): ?>
 		<tr>
-			<td><?=utf8_encode($dados['jurado'])?></td>
+			<td><b><?=utf8_encode($dados['jurado'])?></b><br>
+			Ass:______________________________________</td>
 			<td><?=utf8_encode($dados['nome'])?></td>
 			<td><?=$dados['evolucao']?></td>
 			<td><?=$dados['figurino']?></td>
@@ -48,7 +48,7 @@
 			<td><?=$dados['alinhamento']?></td>
 			<td><?=$dados['coreografia']?></td>
 			<td><?=$dados['harmonia']?></td>
-			<td class="btn-dark"><?=$dados['evolucao']+$dados['figurino']+$dados['animacao']+$dados['alinhamento']+$dados['coreografia']+$dados['harmonia']?></td>
+			<td><?=$dados['evolucao']+$dados['figurino']+$dados['animacao']+$dados['alinhamento']+$dados['coreografia']+$dados['harmonia']?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
@@ -56,8 +56,8 @@
 <?php endif; ?>
 
 <?php if($tb == '2'): ?>
-<table class="table table-striped table-hover table-bordered">
-	<legend align='center'>Quesito Casamento</legend>
+<table class="table table-striped table-hover table-bordered" style="background-color: white">
+	<legend align='center'>Quesito Casamento (Infantil)</legend>
 	<thead>
 		<tr class="btn-success">
 			<th>Jurado</th>
@@ -71,12 +71,13 @@
 	<tbody>
 		<?php foreach ($info_quesitos_casamento as $dados): ?>
 		<tr>
-			<td><?=utf8_encode($dados['jurado'])?></td>
+			<td><b><?=utf8_encode($dados['jurado'])?></b><br>
+			Ass:______________________________________</td>
 			<td><?=utf8_encode($dados['nome'])?></td>
 			<td><?=$dados['vest_tradicional']?></td>
 			<td><?=$dados['originalidade']?></td>
 			<td><?=$dados['deprec_preconceituoso']?></td>
-			<td class="btn-dark"><?=$dados['vest_tradicional']+$dados['originalidade']+$dados['deprec_preconceituoso']?></td>
+			<td><?=$dados['vest_tradicional']+$dados['originalidade']+$dados['deprec_preconceituoso']?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
@@ -84,10 +85,10 @@
 <?php endif; ?>
 
 <?php if($tb == '3'): ?>
-<table class="table table-striped table-hover table-bordered">
-	<legend align='center'>Quesito Marcador</legend>
+<table class="table table-striped table-hover table-bordered" style="background-color: white">
+	<legend align='center'>Quesito Marcador (Infantil)</legend>
 	<thead>
-		<tr class="btn-warning">
+		<tr class="btn-primary">
 			<th>Jurado</th>
 			<th>Participante</th>
 			<th>Desenvoltura</th>
@@ -100,15 +101,19 @@
 	<tbody>
 		<?php foreach ($info_quesitos_marcador as $dados): ?>
 		<tr>
-			<td><?=utf8_encode($dados['jurado'])?></td>
+			<td><b><?=utf8_encode($dados['jurado'])?></b><br>
+			Ass:______________________________________</td>
 			<td><?=utf8_encode($dados['nome'])?></td>
 			<td><?=$dados['desenvoltura']?></td>
 			<td><?=$dados['lideranca']?></td>
 			<td><?=$dados['animacao']?></td>
 			<td><?=$dados['figurino']?></td>
-			<td class="btn-dark"><?=$dados['desenvoltura']+$dados['lideranca']+$dados['animacao']+$dados['figurino']?></td>
+			<td><?=$dados['desenvoltura']+$dados['lideranca']+$dados['animacao']+$dados['figurino']?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>
 <?php endif; ?>
+<div class="hidden-print">
+    <p><a href="#" onclick="window.print()" class="btn btn-warning fas fa-print">Imprimir</a></p>
+</div>

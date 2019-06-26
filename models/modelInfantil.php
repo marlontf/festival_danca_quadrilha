@@ -63,6 +63,7 @@ class modelInfantil extends model
 			SUM(q.evolucao) AS total_evolucao,
 			SUM(q.harmonia) AS total_harmonia,
 			SUM(q.animacao) AS total_animacao,
+			SUM(q.alinhamento) AS total_alinhamento,
 			SUM(q.figurino) AS total_figurino
 			FROM tb_quesitos_quadrilha AS q INNER JOIN tb_participantes AS p ON q.id_participante = p.id WHERE q.id_categoria = 1 GROUP BY q.id_participante 
 			ORDER BY total DESC, total_coreografia DESC, total_evolucao DESC, total_harmonia DESC, total_animacao DESC, total_figurino DESC");

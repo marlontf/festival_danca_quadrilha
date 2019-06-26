@@ -1,4 +1,5 @@
-<h4 align="center">Sistema de Apuração de Resultados</h4>
+<h2 align="center" style="color: #8a4800"><b>Prefeitura Municipal<b></h2>
+<h1 align="center" style="color: #cc8400"><b>Teófilo Otoni</b></h1>
 <hr>
 <div class="row">
   <div class="col-md">

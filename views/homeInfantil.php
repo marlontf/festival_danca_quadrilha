@@ -1,7 +1,7 @@
 <h4 align="center">Grupos Infantis (Avaliações dos Jurados)</h4>
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" style="background-color: white">
 	<thead>
-		<tr class="btn-dark">
+		<tr class="btn-dark tr-table">
 			<th>Participantes</th>
 			<th>Quadrilha</th>
 			<th>Casamento</th>

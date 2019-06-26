@@ -212,5 +212,36 @@ class infantilController extends controller
 		}
 	}
 
+	public function notas()
+	{
+		if (isset($_SESSION['LOGIN']) && !empty($_SESSION['LOGIN'])) {
+		$dquesitos = new modelInfantil();
+		$user = explode('-', $_SESSION['LOGIN']);
+		//verifica as permissões do usuario
+		if ($user[3] == 'comissao') {
+
+		$infantil = new modelInfantil();
+
+		$dados = array();
+		$categoria = '';
+		if (isset($_POST['categoria']) && !empty($_POST['categoria'])) {
+			$categoria = $_POST['categoria'];
+		}
+
+		if ($categoria == '1') {
+			$dados = array
+				(
+					'info_infantil' => $infantil->classificacaoQuadrilha(),
+					'val_categoria' => $categoria
+				);
+		}
+		
+		$this->loadTemplate('notaInfantilJurados', $dados);
+
+		}else{
+			header('Location:'.BASE_URL.'usuario');
+		}
+		}
+	}
 }
 ?>

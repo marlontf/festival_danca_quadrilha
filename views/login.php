@@ -14,7 +14,7 @@
 	</div>
 	<div class="form-group row">
 		<div class="col-sm-offset-2 col-sm col-md d-flex justify-content-end">
-			<button type="submit" class="btn btn-secondary">Sign in</button>
+			<button type="submit" class="btn btn-success">Entrar</button>
 		</div>
 	</div>
 </form>

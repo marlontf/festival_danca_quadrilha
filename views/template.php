@@ -6,11 +6,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Quadrilhas 2019</title>
     <link href="<?=BASE_URL?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=BASE_URL?>assets/css/print.css" rel="stylesheet">
+    <link href="<?=BASE_URL?>assets/css/default.css" rel="stylesheet">
 		<script type="text/javascript" src="<?=BASE_URL?>assets/js/funcoes.js"></script>
     <script src="<?=BASE_URL?>assets/js/jquery.min.js"></script>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-info cl-menu">
   			<a class="navbar-brand" href="#">Festival de Quadrilhas</a>
   			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
     			<span class="navbar-toggler-icon"></span>
@@ -76,13 +78,33 @@
     			</ul>
   			</div>
 		</nav>
-
+    <div class="container-fluid" style="background-image: url('<?=BASE_URL?>assets/images/Junina.png'); background-size: 100%; background-repeat: no-repeat;">
 		<div class="container">
 		<?php
 		//chama a view para dentro do template
 		$this->carregaViewInTemplate($viewName, $viewDados);
 		?>
 		</div>
+</div>
+    <!-- Footer -->
+<footer class="page-footer font-small indigo hidden-print" style="background-color: white !important">
+   
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://www.teofilootoni.mg.gov.br"> Prefeitura Municipal de Teófilo Otoni</a>
+  </div>
+  <!-- Copyright -->
+  <div class="row">
+    <div class="col-md d-flex justify-content-center">
+      <img src="<?=BASE_URL?>assets/images/cpd.png" class="img-responsive" class="img-thumbnail" height="80px">
+    </div>
+    <div class="col-md d-flex justify-content-center">
+      <img src="<?=BASE_URL?>assets/images/pmto.png" class="img-responsive" class="img-thumbnail" height="80px">
+    </div>
+  </div>
+
+</footer>
+<!-- Footer -->
     <script src="<?=BASE_URL?>assets/js/bootstrap.min.js"></script>
     <script src="<?=BASE_URL?>assets/js/jquery.min.js"></script>
 	</body>

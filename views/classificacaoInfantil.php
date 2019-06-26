@@ -1,6 +1,6 @@
 <?php $count =0; ?>
 <form action="" method="POST" role="form">
-	<legend>Categorias Infantis</legend>
+	<legend>CATEGORIAS (INFANTIL)</legend>
 	<div class="row form-group">
 		<div class="col-md">
 			<select name="categoria" class="form-control" required="required">
@@ -31,11 +31,30 @@ if ($_POST['categoria'] == '3') {
 }
  ?>
 <h4 align="center">Classificação Infantil (Quesito <?=$title?>)</h4>
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" style="background-color: white">
 	<thead>
-		<tr class="btn-dark">
+		<tr class="btn-info tr-table">
 			<th>Classificação</th>
 			<th>Participantes</th>
+			<?php if ($_POST['categoria'] == '1'): ?>
+			<th>Coreografia</th>
+			<th>Evolução</th>
+			<th>Harmonia</th>
+			<th>Animação</th>
+			<th>Alinhamento</th>
+			<th>Figurino</th>
+			<?php endif ?>
+			<?php if ($_POST['categoria'] == '2'): ?>
+			<th>Vestimenta Tradicional</th>
+			<th>Originalidade</th>
+			<th>Depreciativos e preconceituoso</th>
+			<?php endif; ?>
+			<?php if ($_POST['categoria'] == '3'): ?>
+			<th>Desenvoltura</th>
+			<th>Liderança</th>
+			<th>Animação</th>
+			<th>Figurino</th>
+			<?php endif; ?>
 			<th>Nota Total</th>
 		</tr>
 	</thead>
@@ -43,9 +62,28 @@ if ($_POST['categoria'] == '3') {
 		<?php foreach ($info_infantil as $dado_infantil):?>
 			<?php  $count +=1;?>
 		<tr>
-			<td><?=$count?>º</td>
-			<td><?=utf8_encode($dado_infantil['nome']);?></td>
-			<td><?=utf8_encode($dado_infantil['total']);?></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$count?>º</label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=utf8_encode($dado_infantil['nome']);?></label></td>
+			<?php if ($_POST['categoria'] == '1'): ?>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_coreografia'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_evolucao'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_harmonia'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_animacao'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_alinhamento'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_figurino'];?></label></td>
+			<?php endif ?>
+			<?php if ($_POST['categoria'] == '2'): ?>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_vest_tradicional'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_originalidade'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_deprec_preconceituoso'];?></label></td>
+			<?php endif ?>
+			<?php if ($_POST['categoria'] == '3'): ?>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_desenvoltura'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_lideranca'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_animacao'];?></label></td>
+			<td><label style="color: #8a4800; font-size: 30px"><?=$dado_infantil['total_figurino'];?></label></td>
+			<?php endif ?>
+			<td><label style="color: #381d00; font-size: 30px"><?=utf8_encode($dado_infantil['total']);?></label></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
@@ -55,10 +93,10 @@ if ($_POST['categoria'] == '3') {
 <?php $count =0; ?>
 	<div class="row">
 		<div class="col-md">
-			<h4 align="center">Classificação Infantil (Quesito Quadrilha)</h4>
-			<table class="table table-bordered table-hover">
+			<h4 align="center"><b>Classificação Infantil (Quesito Quadrilha)</b></h4>
+			<table class="table table-bordered table-hover" style="background-color: white">
 				<thead>
-					<tr class="btn-dark">
+					<tr class="btn-info tr-table tr-table">
 						<th>Classificação</th>
 						<th>Participantes</th>
 						<th>Nota Total</th>
@@ -79,10 +117,10 @@ if ($_POST['categoria'] == '3') {
 <!--Reinicia o contador-->
 <?php $count =0; ?>
 		<div class="col-md">
-			<h4 align="center">Classificação Infantil (Quesito Casamento)</h4>
-			<table class="table table-bordered table-hover">
+			<h4 align="center"><b>Classificação Infantil (Quesito Casamento)</b></h4>
+			<table class="table table-bordered table-hover" style="background-color: white">
 				<thead>
-					<tr class="btn-dark">
+					<tr class="btn-info tr-table">
 						<th>Classificação</th>
 						<th>Participantes</th>
 						<th>Nota Total</th>
@@ -103,10 +141,10 @@ if ($_POST['categoria'] == '3') {
 <!--Reinicia o contador-->
 <?php $count =0; ?>
 		<div class="col-md">
-			<h4 align="center">Classificação Infantil (Quesito Marcador)</h4>
-			<table class="table table-bordered table-hover">
+			<h4 align="center"><b>Classificação Infantil (Quesito Marcador)</b></h4>
+			<table class="table table-bordered table-hover" style="background-color: white">
 				<thead>
-					<tr class="btn-dark">
+					<tr class="btn-info tr-table">
 						<th>Classificação</th>
 						<th>Participantes</th>
 						<th>Nota Total</th>
